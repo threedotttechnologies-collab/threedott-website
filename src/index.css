@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Global Animated Particle Sphere ── */
+@keyframes particle-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(1) rotate(0deg); }
+  50% { opacity: 0.55; transform: scale(1.08) rotate(180deg); }
+}
+
+.particle-bg-global {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.particle-bg-img {
+  width: min(900px, 130vw);
+  height: min(900px, 130vw);
+  object-fit: contain;
+  mix-blend-mode: screen;
+  animation: particle-pulse 10s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Everything above the bg */
+main, header, footer {
+  position: relative;
+  z-index: 1;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Protect inputs from global pointer so users can still see text carets */
+  input, textarea, [contenteditable="true"] {
+    cursor: text !important;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #7B5CF5 0%, #4F8BFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .particle-blob {
+    background: radial-gradient(circle at center, rgba(123, 92, 245, 0.5) 0%, rgba(123, 92, 245, 0.2) 40%, transparent 70%);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 30px rgba(123, 92, 245, 0.4);
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Phone Input Overrides */
+  .contact-phone-wrapper .react-tel-input .form-control {
+    width: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 0 !important;
+    color: white !important;
+    font-size: 14px !important;
+    padding-left: 60px !important;
+    padding-bottom: 12px !important;
+    padding-top: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  .contact-phone-wrapper .react-tel-input .form-control:focus {
+    border-bottom: 1px solid #4F8BFF !important;
+  }
+
+  .contact-phone-wrapper .react-tel-input .flag-dropdown {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 0 !important;
+  }
+
+  .contact-phone-wrapper .react-tel-input .flag-dropdown:hover,
+  .contact-phone-wrapper .react-tel-input .flag-dropdown:focus {
+    background: transparent !important;
+  }
+
+  .contact-phone-wrapper .react-tel-input .selected-flag {
+    background: transparent !important;
+    padding-left: 0 !important;
+    width: 32px !important;
+  }
+
+  .contact-phone-wrapper .react-tel-input .selected-flag:hover,
+  .contact-phone-wrapper .react-tel-input .selected-flag:focus {
+    background: transparent !important;
+  }
+
+  .contact-phone-wrapper .react-tel-input .selected-flag .flag {
+    transform: scale(0.9);
+  }
+
+  .contact-phone-wrapper .react-tel-input .selected-flag .arrow {
+    display: none !important;
+  }
+
+  .contact-phone-wrapper .react-tel-input .country-list {
+    background-color: #111 !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    margin-top: 4px;
+    scrollbar-width: thin;
+    scrollbar-color: #333 #111;
+  }
+
+  .contact-phone-wrapper .react-tel-input .country-list .country:hover,
+  .contact-phone-wrapper .react-tel-input .country-list .country.highlight {
+    background-color: #222 !important;
+  }
+
+  /* Search box overrides */
+  .contact-phone-wrapper .react-tel-input .country-list .search-box {
+    background-color: #111 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 10px !important;
+    margin: 0 !important;
+    display: flex !important;
+  }
+
+  .contact-phone-wrapper .react-tel-input .country-list .search-emoji {
+    display: none !important;
+  }
+
+  .contact-phone-wrapper .react-tel-input .country-list .search {
+    background-color: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border-radius: 4px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  .contact-phone-wrapper .react-tel-input .country-list .search:focus {
+    border-color: #4F8BFF !important;
+    outline: none !important;
+  }
+
+  .contact-phone-wrapper .react-tel-input .country-list .search::placeholder {
+    color: #666 !important;
+  }
+}
