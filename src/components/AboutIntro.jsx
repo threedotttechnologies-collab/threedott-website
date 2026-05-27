@@ -1,48 +1,175 @@
-export default function AboutIntro() {
+import { useEffect, useRef } from "react"
+import { motion } from "framer-motion"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
+
+function SplitWords({ text, className = "" }) {
   return (
-    <section className="bg-black py-20 lg:py-32 text-white border-t border-white/5 relative">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        
-        {/* Headline */}
-        <div className="max-w-4xl mb-24">
-          <p className="text-[10px] sm:text-xs font-mono text-gray-400 tracking-[0.2em] uppercase mb-6 flex items-center gap-2">
-             <span className="w-1.5 h-1.5 rounded-full bg-brand-blue" />
-             Introduction
+    <span className={`inline-flex flex-wrap gap-x-[0.22em] gap-y-2 ${className}`}>
+      {text.split(" ").map((word, index) => (
+        <span
+          key={`${word}-${index}`}
+          className="intro-word text-white/20 transition-colors duration-300"
+        >
+          {word}
+        </span>
+      ))}
+    </span>
+  )
+}
+
+export default function AboutIntro() {
+  const sectionRef = useRef(null)
+  const labelRef = useRef(null)
+  const headingRef = useRef(null)
+  const mapRef = useRef(null)
+  const paragraphRef = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(labelRef.current, {
+        y: 28,
+        opacity: 0,
+        duration: 0.75,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+        },
+      })
+
+      gsap.from(headingRef.current, {
+        y: 45,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 72%",
+        },
+      })
+
+      gsap.from(mapRef.current, {
+        x: -60,
+        opacity: 0,
+        scale: 0.94,
+        duration: 1,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: mapRef.current,
+          start: "top 80%",
+        },
+      })
+
+      gsap.from(paragraphRef.current, {
+        x: 60,
+        opacity: 0,
+        duration: 1,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: paragraphRef.current,
+          start: "top 80%",
+        },
+      })
+
+      gsap.utils.toArray(".intro-reveal").forEach((block) => {
+        const words = block.querySelectorAll(".intro-word")
+
+        gsap.to(words, {
+          color: "rgba(255,255,255,1)",
+          stagger: 0.06,
+          ease: "none",
+          scrollTrigger: {
+            trigger: block,
+            start: "top 70%",
+            end: "bottom 45%",
+            scrub: true,
+          },
+        })
+      })
+
+      gsap.to(mapRef.current, {
+        y: -35,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1.2,
+        },
+      })
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden border-t border-white/5 bg-black py-20 text-white lg:py-32"
+    >
+      <div className="pointer-events-none absolute left-[-10%] top-[20%] h-[420px] w-[420px] rounded-full bg-[#315dff]/10 blur-[130px]" />
+
+      <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
+        {/* HEADLINE */}
+        <div className="mb-24 max-w-[1120px]">
+          <p
+            ref={labelRef}
+            className="mb-8 font-['Inter'] text-[13px] font-normal uppercase leading-none tracking-[0.14em] text-white/45"
+          >
+            Our Story
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
-            ThreeDot Technology operates at the intersection of <span className="text-gray-500">advanced engineering and intelligent systems.</span>
+
+          <h2
+            ref={headingRef}
+            className="intro-reveal font-['Inter'] text-[36px] font-medium leading-[1.1] tracking-[-0.7px] sm:text-[44px] md:text-[50px] lg:text-[56px] lg:leading-[61.6px] lg:tracking-[-1.12px]"
+          >
+            <SplitWords text="ThreeDot Technology operates at the intersection of advanced engineering and intelligent systems." />
           </h2>
         </div>
 
-        {/* Map & Text Row */}
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
-          
-          {/* Left: Map Graphic */}
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
-            <div className="relative w-full max-w-sm aspect-[4/3] flex items-center justify-center">
-               {/* 
-                 A placeholder for the dotted map of Maharashtra. 
-                 Using a generic dotted grid overlay to mimic the image.
-               */}
-               <div className="w-full h-full relative" style={{
-                  backgroundImage: 'radial-gradient(circle at 10px 10px, rgba(255, 255, 255, 0.4) 1px, transparent 1px)',
-                  backgroundSize: '20px 20px',
-                  maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%)',
-                  WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%)'
-               }}>
-                  {/* Glowing blue dot */}
-                  <div className="absolute top-[40%] left-[30%] w-3 h-3 bg-brand-blue rounded-full shadow-[0_0_15px_rgba(79,139,255,0.8)]" />
-               </div>
-            </div>
-          </div>
+        {/* MAP + TEXT */}
+        <div className="grid items-center gap-16 lg:grid-cols-[1.15fr_1fr] lg:gap-24">
+          {/* MAP */}
+          <motion.div
+            ref={mapRef}
+            whileHover={{
+              scale: 1.025,
+              rotate: -1,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 180,
+              damping: 18,
+            }}
+            className="flex justify-center lg:justify-start"
+          >
+            <img
+              src="/map.png"
+              alt="Map"
+              className="w-full max-w-[540px] object-contain opacity-90"
+            />
+          </motion.div>
 
-          {/* Right: Paragraph */}
-          <div className="w-full lg:w-1/2">
-            <p className="text-sm md:text-base text-gray-300 leading-relaxed font-medium">
-              Founded by engineers and problem-solvers, we focus on building scalable software, AI systems, and geospatial platforms that drive real-world impact across industries.
+          {/* PARAGRAPH */}
+          <motion.div
+            ref={paragraphRef}
+            whileHover={{
+              x: 8,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 180,
+              damping: 18,
+            }}
+            className="flex justify-center lg:justify-start"
+          >
+            <p className="intro-reveal max-w-[600px] font-['Inter'] text-[24px] font-semibold leading-[1.12] tracking-normal sm:text-[27px] lg:text-[30px] lg:leading-[33.6px]">
+              <SplitWords text="Founded by engineers and problem-solvers, we focus on building scalable software, AI systems, and geospatial platforms that drive real-world impact across industries." />
             </p>
-          </div>
-          
+          </motion.div>
         </div>
       </div>
     </section>

@@ -10,12 +10,6 @@ import Footer from './components/Footer'
 function App() {
   return (
     <div className="bg-black text-white min-h-screen overflow-x-hidden font-sans relative">
-
-      {/* ── Global Particle Sphere Background ── */}
-      <div className="particle-bg-global" aria-hidden="true">
-        <img src="/particle_sphere.png" alt="" className="particle-bg-img" />
-      </div>
-
       <Navbar />
       <main>
         <Routes>

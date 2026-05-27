@@ -1,76 +1,143 @@
+import { motion } from "framer-motion"
+import PlanetBlob from "./PlanetBlob"
+
 export default function Hero() {
   return (
     <section
       id="about"
-      className="relative min-h-[90vh] bg-black text-white flex flex-col justify-center overflow-hidden pt-20"
+      className="relative min-h-screen overflow-hidden bg-black text-white pt-24 sm:pt-28 lg:pt-8"
     >
-      {/* Background massive glowing particle sphere */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none">
-        <div className="absolute inset-0 bg-blue-600/20 blur-[120px] rounded-full" />
-        <div className="absolute inset-x-20 inset-y-20 bg-brand-purple/20 blur-[80px] rounded-full" />
-        {/* Simulate Particles with a background image or css if needed. For now the glowing drop blob matches the vibe. */}
-        <div className="w-full h-full object-cover opacity-60 mix-blend-screen" style={{ backgroundImage: "radial-gradient(circle at center, rgba(123, 92, 245, 0.4) 0%, transparent 60%)" }} />
-      </div>
+      {/* IMAGE BEAM */}
+      <motion.img
+        src="/Group 45.png"
+        alt="Beam"
+        className="absolute left-[-55%] top-[-10%] z-[1] w-[42rem] max-w-none pointer-events-none select-none opacity-50 mix-blend-screen sm:left-[-35%] sm:w-[55rem] md:left-[-28%] md:top-[-15%] md:w-[65rem] lg:left-[-18%] lg:top-[-18%] lg:w-[70rem] lg:opacity-70"
+        animate={{
+          x: [-20, 30, -20],
+          y: [-10, 20, -10],
+          rotate: [-6, 2, -6],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
 
-      {/* Massive subtle background watermark text */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
-        <h1 className="text-[12rem] lg:text-[18rem] font-black text-white/[0.03] uppercase tracking-widest leading-none">
-          ThreeDott
+      <div className="astronaut-shadow-beam" />
+
+      {/* BIG BACK TEXT */}
+      <div className="absolute left-1/2 top-[9%] z-0 -translate-x-1/2 pointer-events-none select-none sm:top-[10%] lg:left-[5%] lg:translate-x-0">
+        <h1 className="font-['Inter'] text-[52px] font-medium leading-none tracking-[0.04em] text-white/[0.045] uppercase sm:text-[90px] md:text-[125px] lg:text-[200px]">
+          THREEDOTT
         </h1>
       </div>
 
-      <div className="max-w-7xl mx-auto w-full px-6 lg:px-8 relative z-10 flex flex-col pt-10 lg:pt-20">
-        
-        {/* Heading Container */}
-        <div className="max-w-4xl mx-auto text-center flex flex-col gap-4">
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight text-white/90 font-serif">
-            Three <span className="italic">Steps</span>
-          </h2>
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight text-white pl-10 md:pl-32 lg:pl-48">
-            <span className="font-bold italic">Infinite Digital</span> Possibilities
-          </h2>
-          <div className="text-right mt-6 pr-10">
-            <p className="text-xl lg:text-3xl font-bold tracking-wider text-white flex items-center justify-end gap-3">
-              <span className="text-brand-purple">·</span>Design 
-              <span className="text-gray-600">·</span><span className="text-gray-500">Develop</span> 
-              <span className="text-gray-700">·</span><span className="text-gray-600">Deploy</span>
+      {/* ASTRONAUT */}
+      <motion.img
+        src="/Group.png"
+        alt="Astronaut"
+        className="absolute right-[-24%] top-[8%] z-20 w-[78vw] max-w-[360px] object-contain pointer-events-none sm:right-[-8%] sm:top-[6%] sm:w-[52vw] sm:max-w-[460px] md:right-[-2%] md:w-[46vw] md:max-w-[560px] lg:right-[2%] lg:top-[5%] lg:w-[36vw] lg:max-w-[690px]"
+        animate={{
+          y: [0, -18, 0],
+          x: [0, 10, 0],
+          rotate: [0, 2.5, 0],
+        }}
+        transition={{
+          duration: 7,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <PlanetBlob />
+
+      <div className="relative z-30 mx-auto max-w-[1540px] px-5 pt-[30vh] sm:px-8 sm:pt-[32vh] md:px-10 md:pt-[30vh] lg:px-14 lg:pt-[28vh]">
+        <div className="relative">
+          <motion.h2
+            initial={{ opacity: 0, y: 35 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="font-['Poppins'] text-[34px] leading-[1.05] tracking-[0.04em] sm:ml-[6%] sm:text-[44px] md:text-[50px] lg:ml-[10%] lg:text-[56px]"
+          >
+            <span className="font-light">Three</span>{" "}
+            <span className="font-semibold italic">Steps</span>
+          </motion.h2>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 45 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.15 }}
+            className="mt-6 max-w-[760px] font-['Poppins'] text-[38px] leading-[1.05] tracking-[0.04em] sm:mt-8 sm:text-[48px] md:text-[54px] lg:ml-auto lg:mt-10 lg:max-w-none lg:pr-[5%] lg:text-right lg:text-[56px]"
+          >
+            <span className="font-semibold italic">Infinite</span>{" "}
+            <span className="font-semibold italic">Digital</span>{" "}
+            <span className="font-light">Possibilities</span>
+          </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="mt-7 flex justify-start sm:mt-9 lg:justify-end lg:pr-[4%]"
+          >
+            <p className="flex flex-wrap items-center gap-y-3 text-[26px] font-bold italic tracking-wide sm:text-[34px] md:text-[42px] lg:text-[clamp(1.55rem,2.5vw,3.1rem)]">
+              <span className="transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_18px_rgba(255,255,255,0.75)] cursor-default">
+                Design
+              </span>
+
+              <span className="mx-3 text-white/15 sm:mx-5">•</span>
+
+              <span className="text-white/15 transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_18px_rgba(120,140,255,0.9)] cursor-default">
+                Develop
+              </span>
+
+              <span className="mx-3 text-white/15 sm:mx-5">•</span>
+
+              <span className="text-white/15 transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_18px_rgba(180,180,255,0.9)] cursor-default">
+                Deploy
+              </span>
             </p>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Bottom row: CTA and Stats */}
-        <div className="mt-32 lg:mt-48 flex flex-col lg:flex-row items-end justify-between gap-10">
-          
-          {/* Left: Button */}
-          <div className="w-full lg:w-auto">
+        <div className="mt-12 flex flex-col gap-10 sm:mt-[7vh] lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="max-w-[560px] text-[12px] leading-[1.9] tracking-[0.03em] text-white/60 sm:text-[13px]">
+              We design, develop, and deploy modern websites, apps, and business
+              platforms. Powered by AI intelligence to help businesses grow faster.
+            </p>
+
             <a
               href="#contact"
-              className="inline-flex items-center justify-center bg-brand-blue text-white font-semibold text-sm px-8 py-3.5 rounded-full hover:bg-blue-600 transition-all duration-300 shadow-[0_0_20px_rgba(79,139,255,0.4)]"
+              className="mt-7 inline-flex items-center justify-center rounded-full bg-[#4B86FF] px-7 py-3 text-[13px] font-medium text-white shadow-[0_0_35px_rgba(75,134,255,0.55)] transition duration-300 hover:scale-105 hover:bg-[#3f78ee] sm:px-8"
             >
               Start Your Project
             </a>
           </div>
 
-          {/* Right: Stats */}
-          <div className="flex flex-wrap md:flex-nowrap items-center gap-8 lg:gap-16">
-            <div className="flex flex-col">
-              <span className="text-2xl font-black text-white">50+</span>
-              <span className="text-[10px] text-gray-400 uppercase tracking-widest leading-tight mt-1">Projects<br/>Delivered</span>
-            </div>
-            <div className="w-px h-8 bg-white/10 hidden md:block" />
-            <div className="flex flex-col">
-              <span className="text-2xl font-black text-white">100%</span>
-              <span className="text-[10px] text-brand-blue uppercase tracking-widest leading-tight mt-1">Client<br/>Satisfaction</span>
-            </div>
-            <div className="w-px h-8 bg-white/10 hidden md:block" />
-            <div className="flex flex-col">
-              <span className="text-2xl font-black text-white">24/7</span>
-              <span className="text-[10px] text-gray-400 uppercase tracking-widest leading-tight mt-1">Support<br/>Available</span>
-            </div>
+          <div className="grid w-full grid-cols-3 gap-3 pb-10 sm:gap-7 lg:w-auto lg:flex lg:items-end lg:gap-10 lg:pb-1">
+            <Stat number="50" suffix="+" text="Projects Delivered" />
+            <Stat number="100" suffix="%" text="Client Satisfaction" />
+            <Stat number="24" suffix="/7" text="Support Available" />
           </div>
         </div>
-
       </div>
     </section>
+  )
+}
+
+function Stat({ number, suffix, text }) {
+  return (
+    <div className="flex min-h-[84px] flex-col items-start justify-center rounded-2xl border border-white/10 bg-white/[0.035] px-3 py-4 backdrop-blur-sm sm:min-h-0 sm:flex-row sm:items-center sm:gap-3 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0 sm:backdrop-blur-0">
+      <h3 className="text-[24px] font-bold leading-none tracking-tight text-white sm:text-[30px] lg:text-[34px]">
+        {number}
+        <span className="text-[#7C3CFF]">{suffix}</span>
+      </h3>
+
+      <p className="mt-2 text-[9px] font-medium uppercase leading-[1.35] tracking-[0.06em] text-white/60 sm:mt-0 sm:text-[11px] sm:normal-case sm:tracking-[0.04em] sm:text-white/70">
+        {text}
+      </p>
+    </div>
   )
 }

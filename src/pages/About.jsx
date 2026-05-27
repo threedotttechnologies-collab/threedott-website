@@ -1,7 +1,8 @@
-import AboutHero from '../components/AboutHero'
-import AboutIntro from '../components/AboutIntro'
-import AboutValues from '../components/AboutValues'
-import AboutPrinciples from '../components/AboutPrinciples'
+import AboutHero from "../components/AboutHero"
+import AboutIntro from "../components/AboutIntro"
+import AboutValues from "../components/AboutValues"
+import AboutPrinciples from "../components/AboutPrinciples"
+import AboutCTA from "../components/AboutCTA"
 
 export default function About() {
   return (
@@ -10,6 +11,7 @@ export default function About() {
       <AboutIntro />
       <AboutValues />
       <AboutPrinciples />
+      <AboutCTA />
     </>
   )
 }

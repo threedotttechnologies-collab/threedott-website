@@ -1,95 +1,174 @@
-import Logo from './Logo'
+import Logo from "./Logo"
 
 const footerLinks = {
-  Services: ['UI/UX Design', 'Web Development', 'App Development', 'Digital Agency', 'ERP & CRM', 'AI Solutions'],
-  'Quick Links': ['Work', 'About', 'Pricing', 'Contact Us'],
+  Services: [
+    "UI/UX Design",
+    "Web Development",
+    "Web Applications",
+    "Mobile Apps",
+    "ERP / CRM",
+    "AI Solutions",
+  ],
+  "Quick links": ["Work", "About", "Pricing", "Contact Us"],
+}
+
+function PhoneIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.63 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.2a2 2 0 0 1 2.11-.45c.83.3 1.7.51 2.6.63A2 2 0 0 1 22 16.92z" />
+    </svg>
+  )
+}
+
+function SocialIcons() {
+  return (
+    <div className="flex items-center gap-5 text-white">
+      <a href="#" className="transition hover:scale-110 hover:text-[#4F8BFF]">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+          <rect x="2" y="9" width="4" height="12" />
+          <circle cx="4" cy="4" r="2" />
+        </svg>
+      </a>
+
+      <a href="#" className="transition hover:scale-110 hover:text-[#4F8BFF]">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <rect x="2" y="2" width="20" height="20" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" />
+        </svg>
+      </a>
+
+      <a href="#" className="text-[24px] leading-none transition hover:scale-110 hover:text-[#4F8BFF]">
+        𝕏
+      </a>
+
+      <a href="#" className="text-[24px] leading-none transition hover:scale-110 hover:text-[#4F8BFF]">
+        f
+      </a>
+    </div>
+  )
 }
 
 export default function Footer() {
   return (
-    <footer className="bg-[#050510] text-white border-t border-white/5 relative z-10 pt-20 pb-10">
-      
-      {/* Background soft glow for footer */}
-      <div className="absolute top-0 right-[20%] w-[300px] h-[300px] bg-brand-blue/5 blur-[100px] rounded-full pointer-events-none" />
+    <footer className="relative overflow-hidden bg-black text-white">
+      {/* LEFT BLUE BEAM */}
+      <div className="pointer-events-none absolute bottom-[-170px] left-[-120px] h-[300px] w-[700px] rounded-full bg-[#1f63ff]/40 blur-[95px]" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
-          
-          {/* Brand Column */}
-          <div className="sm:col-span-2 lg:col-span-2 flex flex-col gap-6">
-             <div className="flex flex-col gap-1 w-fit">
-                <a href="/" className="hover:opacity-90 transition-opacity">
-                  <Logo />
-                </a>
-                <span className="text-[10px] text-gray-400 tracking-widest uppercase ml-16 mt-2">Technology</span>
-             </div>
-             
-             <div className="mt-4 flex items-center gap-3">
-               <span className="text-[#B09EFF] w-5 h-5 flex items-center justify-center">
-                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-               </span>
-               <p className="text-gray-300 font-semibold text-sm">+91 97987 84550</p>
-             </div>
+      <div className="pointer-events-none absolute bottom-[-85px] left-[-80px] h-[180px] w-[520px] rotate-[8deg] rounded-full bg-[#2f7cff]/30 blur-[70px]" />
+
+      {/* RIGHT BLUE BEAM */}
+      <div className="pointer-events-none absolute bottom-[-165px] right-[-140px] h-[300px] w-[760px] rounded-full bg-[#1f63ff]/45 blur-[95px]" />
+
+      <div className="pointer-events-none absolute bottom-[-80px] right-[-80px] h-[180px] w-[560px] -rotate-[8deg] rounded-full bg-[#2f7cff]/30 blur-[70px]" />
+
+      {/* TOP FADE */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[180px] bg-gradient-to-b from-black via-black/95 to-transparent" />
+
+      <div className="relative z-10 mx-auto max-w-[1650px] px-6 pb-8 pt-20 sm:px-8 lg:px-10">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.6fr_0.8fr_0.8fr_0.7fr] lg:gap-16">
+          {/* BRAND */}
+          <div>
+            <a href="/" className="inline-block transition hover:opacity-90">
+              <div className="origin-left scale-[1.05] sm:scale-[1.15] lg:scale-[1.25]">
+                <Logo />
+              </div>
+            </a>
+
+            <h3 className=" pl-[95px] font-['Poppins'] text-[22px] tracking-[0.02em] text-white sm:pl-[110px] lg:text-[26px]">
+              Technology
+            </h3>
+
+            <div className="mt-12 flex items-center gap-4 pl-8 text-white">
+              <PhoneIcon />
+
+              <a
+                href="tel:++917083197907"
+                className="font-['Poppins'] text-[16px] font-normal tracking-[0.03em] text-white transition hover:text-[#8ab0ff]"
+              >
+                +91 7083197907
+              </a>
+            </div>
           </div>
 
-          {/* Link columns */}
-          {Object.entries(footerLinks).map(([heading, links]) => (
-            <div key={heading}>
-              <h4 className="text-[10px] font-semibold uppercase tracking-widest text-gray-500 mb-5">
-                {heading}
-              </h4>
-              <ul className="space-y-4">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-[11px] font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-widest"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          {/* Social Connect */}
+          {/* SERVICES */}
           <div>
-             <h4 className="text-[10px] font-semibold uppercase tracking-widest text-gray-500 mb-5">
-                Connect
-              </h4>
-              <div className="flex gap-4 items-center">
-                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                 </a>
-                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                 </a>
-                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
-                 </a>
-                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                 </a>
-              </div>
+            <h4 className="mb-5 font-['Poppins'] text-[16px] font-normal tracking-[0.05em] text-white/60">
+              Services
+            </h4>
+
+            <ul className="space-y-3">
+              {footerLinks.Services.map((link) => (
+                <li key={link}>
+                  <a
+                    href="#"
+                    className="font-['Poppins'] text-[15px] font-normal tracking-[0.04em] text-white/55 transition hover:text-white"
+                  >
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* QUICK LINKS */}
+          <div>
+            <h4 className="mb-5 font-['Poppins'] text-[16px] font-normal tracking-[0.05em] text-white/60">
+              Quick links
+            </h4>
+
+            <ul className="space-y-3">
+              {footerLinks["Quick links"].map((link) => (
+                <li key={link}>
+                  <a
+                    href="#"
+                    className="font-['Poppins'] text-[15px] font-normal tracking-[0.04em] text-white/55 transition hover:text-white"
+                  >
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* CONNECT */}
+          <div>
+            <h4 className="mb-5 font-['Poppins'] text-[16px] font-normal tracking-[0.05em] text-white/60">
+              Connect
+            </h4>
+
+            <SocialIcons />
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-20 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-          <p className="text-[10px] text-gray-600 tracking-widest uppercase">
-            ThreeDott Technology, © {new Date().getFullYear()}. All rights reserved.
+        {/* BOTTOM */}
+        <div className="mt-20 flex flex-col gap-5 border-t border-white/5 pt-6 md:flex-row md:items-center md:justify-between">
+          <p className="font-['Poppins'] text-[13px] font-normal tracking-[0.03em] text-white/75">
+            Threedott Technology, © 2026. All right reserved.
           </p>
-          <div className="flex gap-6">
-            {['Terms & Condition', 'Privacy Policy', 'Cookie Policy'].map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="text-[10px] text-gray-600 hover:text-gray-400 transition-colors tracking-widest uppercase"
-              >
-                {item}
-              </a>
-            ))}
+
+          <div className="flex flex-wrap items-center gap-6">
+            {["Terms & Condition", "Privacy Policy", "Cookie Policy"].map(
+              (item) => (
+                <a
+                  key={item}
+                  href="#"
+                  className="font-['Poppins'] text-[13px] font-normal tracking-[0.03em] text-white/75 transition hover:text-white"
+                >
+                  {item}
+                </a>
+              )
+            )}
           </div>
         </div>
       </div>
