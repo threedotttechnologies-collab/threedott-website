@@ -5,6 +5,8 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import ServicePage from './pages/ServicePage'
 import Work from './pages/Work'
+import Terms from './pages/Terms'
+import Privacy from './pages/Privacy'
 import Footer from './components/Footer'
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/work" element={<Work />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="/services/:slug" element={<ServicePage />} />
         </Routes>
       </main>

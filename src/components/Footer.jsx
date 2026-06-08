@@ -1,4 +1,10 @@
-import Logo from "./Logo"
+import { Link } from "react-router-dom";
+import Logo from "./Logo";
+
+const legalLinks = [
+  { label: "Terms & Condition", to: "/terms" },
+  { label: "Privacy Policy", to: "/privacy" },
+];
 
 const footerLinks = {
   Services: [
@@ -10,7 +16,7 @@ const footerLinks = {
     "AI Solutions",
   ],
   "Quick links": ["Work", "About", "Pricing", "Contact Us"],
-}
+};
 
 function PhoneIcon() {
   return (
@@ -26,14 +32,25 @@ function PhoneIcon() {
     >
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.63 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.2a2 2 0 0 1 2.11-.45c.83.3 1.7.51 2.6.63A2 2 0 0 1 22 16.92z" />
     </svg>
-  )
+  );
 }
 
 function SocialIcons() {
   return (
     <div className="flex items-center gap-5 text-white">
-      <a href="#" className="transition hover:scale-110 hover:text-[#4F8BFF]">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+      <a
+        href="https://www.linkedin.com/in/threedott-technologies-8523693b7"
+        target="blank"
+        className="transition hover:scale-110 hover:text-[#4F8BFF]"
+      >
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.7"
+        >
           <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
           <rect x="2" y="9" width="4" height="12" />
           <circle cx="4" cy="4" r="2" />
@@ -41,22 +58,35 @@ function SocialIcons() {
       </a>
 
       <a href="#" className="transition hover:scale-110 hover:text-[#4F8BFF]">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+        >
           <rect x="2" y="2" width="20" height="20" rx="5" />
           <circle cx="12" cy="12" r="4" />
           <circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" />
         </svg>
       </a>
 
-      <a href="#" className="text-[24px] leading-none transition hover:scale-110 hover:text-[#4F8BFF]">
+      <a
+        href="#"
+        className="text-[24px] leading-none transition hover:scale-110 hover:text-[#4F8BFF]"
+      >
         𝕏
       </a>
 
-      <a href="#" className="text-[24px] leading-none transition hover:scale-110 hover:text-[#4F8BFF]">
+      <a
+        href="#"
+        className="text-[24px] leading-none transition hover:scale-110 hover:text-[#4F8BFF]"
+      >
         f
       </a>
     </div>
-  )
+  );
 }
 
 export default function Footer() {
@@ -154,24 +184,22 @@ export default function Footer() {
         {/* BOTTOM */}
         <div className="mt-20 flex flex-col gap-5 border-t border-white/5 pt-6 md:flex-row md:items-center md:justify-between">
           <p className="font-['Poppins'] text-[13px] font-normal tracking-[0.03em] text-white/75">
-            Threedott Technology, © 2026. All right reserved.
+            Leancrop Agritech Private Limited, © 2026. All right reserved.
           </p>
 
           <div className="flex flex-wrap items-center gap-6">
-            {["Terms & Condition", "Privacy Policy", "Cookie Policy"].map(
-              (item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className="font-['Poppins'] text-[13px] font-normal tracking-[0.03em] text-white/75 transition hover:text-white"
-                >
-                  {item}
-                </a>
-              )
-            )}
+            {legalLinks.map((item) => (
+              <Link
+                key={item.label}
+                to={item.to}
+                className="font-['Poppins'] text-[13px] font-normal tracking-[0.03em] text-white/75 transition hover:text-white"
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

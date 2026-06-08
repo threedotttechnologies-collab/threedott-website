@@ -122,7 +122,13 @@ export default function Contact() {
       >
         <p className="mb-12 max-w-md text-sm leading-relaxed text-gray-400 md:text-base">
           Let's talk about your next big idea. Use the form to tell us more, or
-          simply drop us an email at connect@Threedott
+          simply drop us an email at{" "}
+          <a
+            href="mailto:connect@threedott.com"
+            className="text-white/80 underline decoration-white/30 underline-offset-2 transition hover:text-white"
+          >
+            connect@threedott.com
+          </a>
         </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-y-10">
