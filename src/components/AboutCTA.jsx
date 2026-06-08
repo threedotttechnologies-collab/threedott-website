@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import PlanetBlob from "./PlanetBlob"
 
 export default function AboutCTA() {
@@ -27,13 +28,13 @@ export default function AboutCTA() {
                         </span>
                     </h2>
 
-                    <a
-                        href="/contact"
+                    <Link
+                        to="/contact"
                         className="mt-12 inline-flex h-[58px] min-w-[340px] items-center justify-between rounded-full bg-[#4F8BFF] px-12 font-['Inter'] text-[20px] font-normal tracking-[0.04em] text-white shadow-[0_0_28px_rgba(79,139,255,0.85)] transition-all duration-300 hover:scale-105 hover:bg-[#3f7fff]"
                     >
                         Start Your Project
                         <span className="text-[34px] leading-none">→</span>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>

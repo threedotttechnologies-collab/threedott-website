@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import PlanetBlob from "./PlanetBlob"
 
 export default function CTASection() {
@@ -73,8 +74,8 @@ export default function CTASection() {
 
           {/* BUTTONS */}
           <div className="mt-8 flex flex-wrap items-center gap-8">
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="
                 inline-flex
                 h-[52px]
@@ -97,7 +98,7 @@ export default function CTASection() {
               "
             >
               Start a Project
-            </a>
+            </Link>
 
             <a
               href="/work"

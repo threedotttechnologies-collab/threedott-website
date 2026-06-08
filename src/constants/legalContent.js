@@ -83,7 +83,7 @@ export const termsContent = {
       title: "10. Contact Us",
       paragraphs: [
         "If you have questions about these Terms, please contact us at:",
-        "Email: connect@threedott.com",
+        "Email: contact@threedott.com",
         "Phone: +91 7083197907",
       ],
     },
@@ -105,7 +105,7 @@ export const privacyContent = {
       id: "information-we-collect",
       title: "2. Information We Collect",
       paragraphs: [
-        "Information you provide to us: When you use our contact form, we may collect your first name, last name, email address, phone number, service interest, project budget range, and message content.",
+        "Information you provide to us: When you use our contact form, we may collect your first name, last name, email address, phone number, service interest, project budget, and message content.",
         "Information collected automatically: When you visit the Site, our hosting provider and infrastructure may automatically collect certain technical information, such as your IP address, browser type, operating system, referring URL, pages viewed, and the date and time of your visit. This data is typically collected in server logs for security, performance, and diagnostic purposes.",
         "Third-party services: The Site loads fonts from Google Fonts and images from Unsplash. When your browser requests these resources, those providers may receive technical data such as your IP address, browser information, and referring page. We do not control how these third parties process that data.",
       ],
@@ -157,7 +157,7 @@ export const privacyContent = {
       paragraphs: [
         "Depending on your location, you may have the right to:",
         "Access the personal information we hold about you; request correction of inaccurate information; request deletion of your information; object to or restrict certain processing; withdraw consent where processing is based on consent; and lodge a complaint with a data protection authority.",
-        "To exercise any of these rights, please contact us at connect@threedott.com. We will respond within a reasonable timeframe and in accordance with applicable law.",
+        "To exercise any of these rights, please contact us at contact@threedott.com. We will respond within a reasonable timeframe and in accordance with applicable law.",
       ],
     },
     {
@@ -196,7 +196,7 @@ export const privacyContent = {
       title: "13. Contact Us",
       paragraphs: [
         "If you have questions about this Privacy Policy or wish to exercise your privacy rights, please contact us at:",
-        "Email: connect@threedott.com",
+        "Email: contact@threedott.com",
         "Phone: +91 7083197907",
       ],
     },
