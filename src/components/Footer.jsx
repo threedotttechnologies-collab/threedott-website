@@ -57,7 +57,12 @@ function SocialIcons() {
         </svg>
       </a>
 
-      <a href="#" className="transition hover:scale-110 hover:text-[#4F8BFF]">
+      <a
+        href="https://www.instagram.com/threedott01/?hl=en"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="transition hover:scale-110 hover:text-[#4F8BFF]"
+      >
         <svg
           width="22"
           height="22"
@@ -73,14 +78,18 @@ function SocialIcons() {
       </a>
 
       <a
-        href="#"
+        href="https://www.instagram.com/threedott01/?hl=en"
+        target="_blank"
+        rel="noopener noreferrer"
         className="text-[24px] leading-none transition hover:scale-110 hover:text-[#4F8BFF]"
       >
         𝕏
       </a>
 
       <a
-        href="#"
+        href="https://www.instagram.com/threedott01/?hl=en"
+        target="_blank"
+        rel="noopener noreferrer"
         className="text-[24px] leading-none transition hover:scale-110 hover:text-[#4F8BFF]"
       >
         f
@@ -119,15 +128,18 @@ export default function Footer() {
               Technology
             </h3>
 
-            <div className="mt-12 flex items-center gap-4 pl-8 text-white">
-              <PhoneIcon />
-
+            <div className="mt-12 flex flex-col gap-3 pl-8 text-white">
               <a
-                href="tel:++917083197907"
-                className="font-['Poppins'] text-[16px] font-normal tracking-[0.03em] text-white transition hover:text-[#8ab0ff]"
+                href="tel:+917083197907"
+                className="inline-flex items-center gap-4 whitespace-nowrap font-['Poppins'] text-[16px] font-normal tracking-[0.03em] text-white transition hover:text-[#8ab0ff]"
               >
+                <PhoneIcon />
                 +91 7083197907
               </a>
+              <p className="max-w-[360px] font-['Poppins'] text-[16px] font-normal leading-relaxed tracking-[0.03em] text-white/90">
+                Address: 87/3b/1c, Shree Colony, Azad Nagar, Kothrud, Pune,
+                Maharashtra 411038
+              </p>
             </div>
           </div>
 
@@ -184,7 +196,8 @@ export default function Footer() {
         {/* BOTTOM */}
         <div className="mt-20 flex flex-col gap-5 border-t border-white/5 pt-6 md:flex-row md:items-center md:justify-between">
           <p className="font-['Poppins'] text-[13px] font-normal tracking-[0.03em] text-white/75">
-            Leancrop Agritech Private Limited, © 2026. All right reserved.
+            Three Dott Technologies, © {new Date().getFullYear()}. All rights
+            reserved.
           </p>
 
           <div className="flex flex-wrap items-center gap-6">
